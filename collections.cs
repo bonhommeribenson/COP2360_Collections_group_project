@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-    //this program allow users to manage student information using a Dictionary
+    //this program allows users to manage student information using a Dictionary
 class Program
 {
     static void Main()
