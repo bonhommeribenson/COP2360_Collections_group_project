@@ -67,9 +67,17 @@ class Program
                     Console.Write("Enter courses for the student (comma-separated): ");
                     string coursesInput = Console.ReadLine() ?? "";
                     List<string> courses = coursesInput.Split(',').Select(c => c.Trim()).ToList();
-                    studentCourses[newStudentId] = courses;
-                    Console.WriteLine($"Student ID {newStudentId} added successfully.");
-                    break;
+                                                                                                                // Check if the Student ID already exists.
+                    if (studentCourses.ContainsKey(newStudentId))
+                    {
+                        Console.WriteLine("Student ID already exists. Please enter a different ID.");
+                    }
+                    else
+                    {
+                                                                                                                // Add the new student only if the ID does not exist.
+                        studentCourses.Add(newStudentId, courses);
+                        Console.WriteLine($"Student ID {newStudentId} added successfully.");
+                    }
                                                                                                                 // Step 5: Add value to existing key in the dictionary.
                 case "5":
                     Console.Write("Enter Student ID to add courses to: ");
@@ -106,4 +114,3 @@ class Program
             }
         } while (choice != "0");
     }
-}
